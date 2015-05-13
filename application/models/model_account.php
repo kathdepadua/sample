@@ -21,7 +21,7 @@ class model_account extends CI_Model
 
     public function authenticate()
     {
-        $sql = "SELECT account_id, firstname, lastname, active FROM account WHERE active = 1;";
+        $sql = "SELECT account_id, firstname, lastname, active FROM account WHERE active = 1 AND email = ? AND password = ?;";
         $query = $this->db->query($sql, array($_POST['email'], $_POST['password']));
         return $query->result();
     }

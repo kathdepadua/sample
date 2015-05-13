@@ -14,7 +14,8 @@ function submit_form() {
                 }   
 
             }else {
-                system_message(json, 0);
+                alert(system_message(json,0));
+                //system_message(json, 0);
             }
         }
     });
@@ -24,12 +25,12 @@ function system_message(json, success) {
     var message = '';
     if (success != 1) {
         for (i = 0; i < json.length; i++) {
-            message += '<div>' + json[i] + '</div>';
+            message += json[i] + "\n";
         }
     } else {
         message = json.message;
     }
-    return '<div><br>' + message + '</div>';
+    return  message;
 }
 
 $('document').ready(function(e){

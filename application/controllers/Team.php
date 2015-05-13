@@ -6,9 +6,11 @@ class Team extends MY_Controller {
 	public function __construct()
     {
         parent::__construct();
+        $this->_check_session();
+        
         $this->load->model(array('model_gameline'));
 
-         $this->data['user'] = $this->session->userdata('firstname');
+        $this->data['user'] = $this->session->userdata('firstname');
     }
 
     public function validate(){

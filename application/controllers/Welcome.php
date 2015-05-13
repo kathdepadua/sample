@@ -6,6 +6,7 @@ class Welcome extends MY_Controller {
 	public function __construct()
     {
         parent::__construct();
+
         $this->load->model(array('model_account','model_gameline'));
     }
 
@@ -46,6 +47,8 @@ class Welcome extends MY_Controller {
 
     public function admin(){
 
+        $this->_check_session();
+        
          $this->data['gameline_id'] = '';
         $this->data['game_date'] = '';
         $this->data['game_match'] = '';
@@ -53,7 +56,7 @@ class Welcome extends MY_Controller {
         $this->data['standings'] = '';
         $this->data['win'] = '';
         $this->data['lose'] = '';
-    	
+    	$this->data['user'] = $this->session->userdata('firstname');
     	$this->data['page'] = $this->parser->parse('add_view', $this->data, TRUE);
 
         $this->template('dashboard_view');

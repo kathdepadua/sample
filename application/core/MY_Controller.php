@@ -21,16 +21,11 @@ class MY_Controller extends CI_Controller
 
         $this->load->helper(array(
             'url',
-            //'html',
-            //'functions',
-            //'html_snips'
         ));
 
         $this->load->library(array(
             'parser',
             'pagination',
-            //'random_code',
-            //'curl',
             'validation',
             'session'
         ));
@@ -64,7 +59,7 @@ class MY_Controller extends CI_Controller
     public function _check_session()
     {
         if ((bool) !$this->set_page()) {
-            //redirect(base_url());
+            redirect(base_url());
         }
     }
     
